@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="150" id="KGk-i7-Jjw" customClass="SongCell" customModule="BandLabSample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="363" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="363" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UV-sD-YFO">
+                        <rect key="frame" x="10" y="10" width="343" height="130"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d06-Aa-Qve">
+                                <rect key="frame" x="5" y="10" width="333" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.58431372549019611" green="0.58431372549019611" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="d06-Aa-Qve" firstAttribute="leading" secondItem="3UV-sD-YFO" secondAttribute="leading" constant="5" id="dgZ-QS-6N2"/>
+                            <constraint firstItem="d06-Aa-Qve" firstAttribute="top" secondItem="3UV-sD-YFO" secondAttribute="top" constant="10" id="gsH-9J-VHM"/>
+                            <constraint firstAttribute="trailing" secondItem="d06-Aa-Qve" secondAttribute="trailing" constant="5" id="uMH-rY-Pwm"/>
+                            <constraint firstAttribute="height" constant="130" id="v2a-ET-nT8"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="3UV-sD-YFO" secondAttribute="trailing" constant="10" id="1DC-Ni-JNw"/>
+                    <constraint firstItem="3UV-sD-YFO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="NYD-gJ-jXx"/>
+                    <constraint firstItem="3UV-sD-YFO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="a5k-d7-R0l"/>
+                    <constraint firstAttribute="bottom" secondItem="3UV-sD-YFO" secondAttribute="bottom" constant="10" id="jos-uy-lzs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="songTitleLabel" destination="d06-Aa-Qve" id="gi8-ed-Fql"/>
+            </connections>
+            <point key="canvasLocation" x="163.04347826086959" y="117.1875"/>
+        </tableViewCell>
+    </objects>
+</document>
