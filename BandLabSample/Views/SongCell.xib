@@ -25,9 +25,33 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gdf-G5-Fpa">
+                                <rect key="frame" x="303" y="90" width="30" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjR-JZ-7jJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="play"/>
+                                        <connections>
+                                            <action selector="songActionButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Abd-cq-GMb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bjR-JZ-7jJ" secondAttribute="trailing" id="Z27-9u-Hrb"/>
+                                    <constraint firstItem="bjR-JZ-7jJ" firstAttribute="top" secondItem="Gdf-G5-Fpa" secondAttribute="top" id="ZMR-cp-UFL"/>
+                                    <constraint firstAttribute="height" constant="30" id="eYz-0d-xTA"/>
+                                    <constraint firstAttribute="bottom" secondItem="bjR-JZ-7jJ" secondAttribute="bottom" id="nrc-Eb-JgC"/>
+                                    <constraint firstAttribute="width" constant="30" id="o7t-Ak-MFo"/>
+                                    <constraint firstItem="bjR-JZ-7jJ" firstAttribute="leading" secondItem="Gdf-G5-Fpa" secondAttribute="leading" id="xd8-2R-pcu"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.58431372549019611" green="0.58431372549019611" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Gdf-G5-Fpa" secondAttribute="bottom" constant="10" id="C93-sh-STF"/>
+                            <constraint firstAttribute="trailing" secondItem="Gdf-G5-Fpa" secondAttribute="trailing" constant="10" id="bvs-SF-rij"/>
                             <constraint firstItem="d06-Aa-Qve" firstAttribute="leading" secondItem="3UV-sD-YFO" secondAttribute="leading" constant="5" id="dgZ-QS-6N2"/>
                             <constraint firstItem="d06-Aa-Qve" firstAttribute="top" secondItem="3UV-sD-YFO" secondAttribute="top" constant="10" id="gsH-9J-VHM"/>
                             <constraint firstAttribute="trailing" secondItem="d06-Aa-Qve" secondAttribute="trailing" constant="5" id="uMH-rY-Pwm"/>
@@ -50,9 +74,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="songActionButton" destination="bjR-JZ-7jJ" id="mne-AJ-6st"/>
                 <outlet property="songTitleLabel" destination="d06-Aa-Qve" id="gi8-ed-Fql"/>
+                <outlet property="stateBackgroundView" destination="Gdf-G5-Fpa" id="Yy3-Z3-GSI"/>
             </connections>
             <point key="canvasLocation" x="163.04347826086959" y="117.1875"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="play" width="22" height="22"/>
+    </resources>
 </document>

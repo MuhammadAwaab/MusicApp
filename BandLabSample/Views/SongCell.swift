@@ -10,11 +10,14 @@ import UIKit
 class SongCell: UITableViewCell {
 
     @IBOutlet weak var songTitleLabel: UILabel!
+    @IBOutlet weak var stateBackgroundView: UIView!
+    @IBOutlet weak var songActionButton: UIButton!
     
     
     var viewModel: SongCellViewModel? {
         didSet{
             songTitleLabel.text = viewModel?.displayData.name ?? ""
+            songActionButton.setImage(viewModel?.currentState.buttonImage, for: .normal)
         }
     }
     
@@ -28,5 +31,14 @@ class SongCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func songActionButtonTapped(_ sender: Any) {
+        viewModel?.updateCurrentState()
+        songActionButton.setImage(viewModel?.currentState.buttonImage, for: .normal)
+        if let interaction = viewModel?.currentState.buttonInteractionEnabled {
+            songActionButton.isEnabled = interaction
+        }
+    }
+    
     
 }

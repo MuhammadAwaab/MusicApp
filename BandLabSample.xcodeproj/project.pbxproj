@@ -37,6 +37,7 @@
 		FF8559E027BA95D600E3659C /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8559DD27BA95D600E3659C /* SongCell.swift */; };
 		FF8559E127BA95D600E3659C /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8559DE27BA95D600E3659C /* SongCell.xib */; };
 		FF8559E227BA95D600E3659C /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8559DE27BA95D600E3659C /* SongCell.xib */; };
+		FF8559E327BB191000E3659C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF85598427B98EE000E3659C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -323,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8559E327BB191000E3659C /* Assets.xcassets in Resources */,
 				FF8559E227BA95D600E3659C /* SongCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

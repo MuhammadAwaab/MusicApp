@@ -21,7 +21,6 @@ class ViewController: UIViewController {
         bindWithViewModel()
     }
 
-
     func bindWithViewModel() {
         mainTableView.register(UINib(nibName: viewModel.getCellIdentifier(), bundle: nil), forCellReuseIdentifier: viewModel.getCellIdentifier())
         self.viewModel.updateView = {[weak self] in
@@ -31,7 +30,6 @@ class ViewController: UIViewController {
     }
     
 }
-
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
