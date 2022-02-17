@@ -49,6 +49,12 @@ class MainViewModel: MainViewModelProtocol {
             return cellViewModelsArray[indexPath.row]
         }
     
+    func stopPlayingSongs() {
+        for cellViewModel in cellViewModelsArray {
+            cellViewModel.pauseSongIfPlaying()
+        }
+    }
+    
     private func updateCellModelViewsWith(parsedData: [SongData]) {
         var arrayForModels: [SongCellViewModel] = []
         for song in parsedData {

@@ -43,23 +43,49 @@ enum SongState {
 class SongCellViewModel {
     let displayData: SongData
     var currentState: SongState
+    private var currentAudioProvider: AudioProviderProtocol
     
-    init(songToShow: SongData) {
+    init(songToShow: SongData, audioProvider: AudioProviderProtocol = AudioContentProvider()) {
         self.displayData = songToShow
-        self.currentState = .waitingForDownload
+        self.currentAudioProvider = audioProvider
+        if self.currentAudioProvider.isFileExistingInLocalStorage(fileURL: displayData.audioURL ?? "") {
+            self.currentState = .playing
+        } else {
+            self.currentState = .waitingForDownload
+        }
+    }
+    
+    
+    private func downloadCurrentAudio() {
+        self.currentAudioProvider.downloadFileAndSaveToStorage(fileURL: displayData.audioURL ?? "")
+    }
+    
+    private func playCurrentSongAudio() {
+        if let content = self.currentAudioProvider.getDestinationContentURLOfSavedSong(fileURL: displayData.audioURL ?? "") {
+            AudioPlayerManager.shared.playAudioWithContent(contentURL: content)
+        }
+        
     }
     
     func updateCurrentState() {
         switch currentState {
         case .playing:
             self.currentState = .paused
+            playCurrentSongAudio()
         case .paused:
             self.currentState = .playing
+            AudioPlayerManager.shared.stopPlayingAudio()
         case .waitingForDownload:
+            downloadCurrentAudio()
             self.currentState = .downloading
         case .downloading:
             self.currentState = .downloading
         }
     }
     
+    func pauseSongIfPlaying() {
+        if currentState == .playing {
+            currentState = .paused
+        }
+    }
 }

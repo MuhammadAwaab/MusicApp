@@ -38,6 +38,10 @@
 		FF8559E127BA95D600E3659C /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8559DE27BA95D600E3659C /* SongCell.xib */; };
 		FF8559E227BA95D600E3659C /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8559DE27BA95D600E3659C /* SongCell.xib */; };
 		FF8559E327BB191000E3659C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF85598427B98EE000E3659C /* Assets.xcassets */; };
+		FFC3EC6827BDC47E005654B3 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EC6727BDC47D005654B3 /* AudioPlayerManager.swift */; };
+		FFC3EC6927BDC47E005654B3 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EC6727BDC47D005654B3 /* AudioPlayerManager.swift */; };
+		FFC3EC6B27BDCBE2005654B3 /* AudioContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EC6A27BDCBE2005654B3 /* AudioContentProvider.swift */; };
+		FFC3EC6C27BDCBE2005654B3 /* AudioContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EC6A27BDCBE2005654B3 /* AudioContentProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,8 @@
 		FF8559DA27BA95A900E3659C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FF8559DD27BA95D600E3659C /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		FF8559DE27BA95D600E3659C /* SongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
+		FFC3EC6727BDC47D005654B3 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
+		FFC3EC6A27BDCBE2005654B3 /* AudioContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				FF8559AC27B9955D00E3659C /* DataProvider.swift */,
+				FFC3EC6727BDC47D005654B3 /* AudioPlayerManager.swift */,
+				FFC3EC6A27BDCBE2005654B3 /* AudioContentProvider.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -343,6 +351,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC3EC6827BDC47E005654B3 /* AudioPlayerManager.swift in Sources */,
+				FFC3EC6B27BDCBE2005654B3 /* AudioContentProvider.swift in Sources */,
 				FF8559D027B9A74500E3659C /* NetworkServiceHelper.swift in Sources */,
 				FF8559D427B9A74500E3659C /* DataRequest.swift in Sources */,
 				FF8559D227B9A74500E3659C /* SampleService.swift in Sources */,
@@ -363,11 +373,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF8559DC27BA95A900E3659C /* ViewController.swift in Sources */,
+				FFC3EC6927BDC47E005654B3 /* AudioPlayerManager.swift in Sources */,
 				FF8559E027BA95D600E3659C /* SongCell.swift in Sources */,
 				FF8559D127B9A74500E3659C /* NetworkServiceHelper.swift in Sources */,
 				FF8559D827B9B39C00E3659C /* SongCellViewModel.swift in Sources */,
 				FF8559BF27B9977200E3659C /* SongData.swift in Sources */,
 				FF8559BD27B9977200E3659C /* BaseData.swift in Sources */,
+				FFC3EC6C27BDCBE2005654B3 /* AudioContentProvider.swift in Sources */,
 				FF8559B227B9955D00E3659C /* DataProvider.swift in Sources */,
 				FF85599327B98EE200E3659C /* BandLabSampleTests.swift in Sources */,
 				FF8559C327B99F6A00E3659C /* MainViewModel.swift in Sources */,
