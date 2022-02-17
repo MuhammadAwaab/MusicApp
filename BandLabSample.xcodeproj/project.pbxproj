@@ -44,6 +44,9 @@
 		FFC3EC6C27BDCBE2005654B3 /* AudioContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EC6A27BDCBE2005654B3 /* AudioContentProvider.swift */; };
 		FFC3EC6E27BE9A45005654B3 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EC6D27BE9A45005654B3 /* ProgressView.swift */; };
 		FFC3EC6F27BE9A45005654B3 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EC6D27BE9A45005654B3 /* ProgressView.swift */; };
+		FFC3EC7127BEC71E005654B3 /* SampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = FFC3EC7027BEC71D005654B3 /* SampleData.json */; };
+		FFC3EC7327BEC77F005654B3 /* MockDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EC7227BEC77F005654B3 /* MockDataProvider.swift */; };
+		FFC3EC7427BECB21005654B3 /* SampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = FFC3EC7027BEC71D005654B3 /* SampleData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +93,8 @@
 		FFC3EC6727BDC47D005654B3 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 		FFC3EC6A27BDCBE2005654B3 /* AudioContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentProvider.swift; sourceTree = "<group>"; };
 		FFC3EC6D27BE9A45005654B3 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		FFC3EC7027BEC71D005654B3 /* SampleData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SampleData.json; sourceTree = "<group>"; };
+		FFC3EC7227BEC77F005654B3 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +163,9 @@
 		FF85599127B98EE200E3659C /* BandLabSampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				FFC3EC7027BEC71D005654B3 /* SampleData.json */,
 				FF85599227B98EE200E3659C /* BandLabSampleTests.swift */,
+				FFC3EC7227BEC77F005654B3 /* MockDataProvider.swift */,
 			);
 			path = BandLabSampleTests;
 			sourceTree = "<group>";
@@ -326,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF8559E127BA95D600E3659C /* SongCell.xib in Resources */,
+				FFC3EC7427BECB21005654B3 /* SampleData.json in Resources */,
 				FF85598827B98EE000E3659C /* LaunchScreen.storyboard in Resources */,
 				FF85598527B98EE000E3659C /* Assets.xcassets in Resources */,
 				FF85598327B98ED300E3659C /* Main.storyboard in Resources */,
@@ -337,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF8559E327BB191000E3659C /* Assets.xcassets in Resources */,
+				FFC3EC7127BEC71E005654B3 /* SampleData.json in Resources */,
 				FF8559E227BA95D600E3659C /* SongCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +393,7 @@
 				FF8559D827B9B39C00E3659C /* SongCellViewModel.swift in Sources */,
 				FF8559BF27B9977200E3659C /* SongData.swift in Sources */,
 				FF8559BD27B9977200E3659C /* BaseData.swift in Sources */,
+				FFC3EC7327BEC77F005654B3 /* MockDataProvider.swift in Sources */,
 				FFC3EC6C27BDCBE2005654B3 /* AudioContentProvider.swift in Sources */,
 				FF8559B227B9955D00E3659C /* DataProvider.swift in Sources */,
 				FF85599327B98EE200E3659C /* BandLabSampleTests.swift in Sources */,
