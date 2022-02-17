@@ -42,6 +42,8 @@
 		FFC3EC6927BDC47E005654B3 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EC6727BDC47D005654B3 /* AudioPlayerManager.swift */; };
 		FFC3EC6B27BDCBE2005654B3 /* AudioContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EC6A27BDCBE2005654B3 /* AudioContentProvider.swift */; };
 		FFC3EC6C27BDCBE2005654B3 /* AudioContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EC6A27BDCBE2005654B3 /* AudioContentProvider.swift */; };
+		FFC3EC6E27BE9A45005654B3 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EC6D27BE9A45005654B3 /* ProgressView.swift */; };
+		FFC3EC6F27BE9A45005654B3 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EC6D27BE9A45005654B3 /* ProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,7 @@
 		FF8559DE27BA95D600E3659C /* SongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
 		FFC3EC6727BDC47D005654B3 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 		FFC3EC6A27BDCBE2005654B3 /* AudioContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentProvider.swift; sourceTree = "<group>"; };
+		FFC3EC6D27BE9A45005654B3 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,7 @@
 				FF8559DA27BA95A900E3659C /* ViewController.swift */,
 				FF8559DD27BA95D600E3659C /* SongCell.swift */,
 				FF8559DE27BA95D600E3659C /* SongCell.xib */,
+				FFC3EC6D27BE9A45005654B3 /* ProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -353,6 +357,7 @@
 			files = (
 				FFC3EC6827BDC47E005654B3 /* AudioPlayerManager.swift in Sources */,
 				FFC3EC6B27BDCBE2005654B3 /* AudioContentProvider.swift in Sources */,
+				FFC3EC6E27BE9A45005654B3 /* ProgressView.swift in Sources */,
 				FF8559D027B9A74500E3659C /* NetworkServiceHelper.swift in Sources */,
 				FF8559D427B9A74500E3659C /* DataRequest.swift in Sources */,
 				FF8559D227B9A74500E3659C /* SampleService.swift in Sources */,
@@ -383,6 +388,7 @@
 				FF8559B227B9955D00E3659C /* DataProvider.swift in Sources */,
 				FF85599327B98EE200E3659C /* BandLabSampleTests.swift in Sources */,
 				FF8559C327B99F6A00E3659C /* MainViewModel.swift in Sources */,
+				FFC3EC6F27BE9A45005654B3 /* ProgressView.swift in Sources */,
 				FF8559D327B9A74500E3659C /* SampleService.swift in Sources */,
 				FF8559D527B9A74500E3659C /* DataRequest.swift in Sources */,
 			);

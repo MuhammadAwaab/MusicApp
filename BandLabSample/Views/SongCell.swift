@@ -13,6 +13,7 @@ class SongCell: UITableViewCell {
     @IBOutlet weak var stateBackgroundView: UIView!
     @IBOutlet weak var songActionButton: UIButton!
     
+    var circularProgress: ProgressView?
     
     var viewModel: SongCellViewModel? {
         didSet{
@@ -32,20 +33,38 @@ class SongCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    private func createCircularProgressViewAndAddToCell() {
+         circularProgress = ProgressView(frame: CGRect(x: 0.0, y: 0.0, width: stateBackgroundView.frame.width, height: stateBackgroundView.frame.height))
+                
+        circularProgress!.center = stateBackgroundView.center
+        stateBackgroundView.addSubview(circularProgress!)
+        updateActionButtonInterface()
+    }
     
     private func updateActionButtonInterface() {
         DispatchQueue.main.async {
             self.songActionButton.setImage(self.viewModel?.currentState.buttonImage, for: .normal)
-            if let interaction = self.viewModel?.currentState.buttonInteractionEnabled {
-                self.songActionButton.isEnabled = interaction
+            if let hideActionButton = self.viewModel?.currentState.shouldHideButton {
+                self.songActionButton.isHidden = hideActionButton
+                if hideActionButton == false {
+                    self.circularProgress?.removeFromSuperview()
+                }
             }
         }
     }
     
     private func bindWithCellViewModel() {
+        createCircularProgressViewAndAddToCell()
         self.viewModel?.updateOfDownloadAndSavedToDocuments = {[weak self] in
             self?.updateActionButtonInterface()
         }
+        
+        self.viewModel?.showDownloadProgressOfCurrentContent = { percentage in
+            DispatchQueue.main.async {
+                self.circularProgress?.setProgressWithAnimation(duration: 0.0, value: Float(percentage))
+            }
+        }
+        
     }
     
     

@@ -28,12 +28,12 @@ enum SongState {
         }
     }
     
-    var buttonInteractionEnabled: Bool {
+    var shouldHideButton: Bool {
         switch self {
         case .waitingForDownload, .paused, .playing:
-            return true
-        case .downloading:
             return false
+        case .downloading:
+            return true
         }
     }
     
@@ -59,14 +59,29 @@ class SongCellViewModel {
     }
     
     var updateOfDownloadAndSavedToDocuments:(() -> Void)?
+    var showDownloadProgressOfCurrentContent:((_ percentage: Double) -> Void)?
+
     
     private func downloadCurrentAudio() {
-        self.currentAudioProvider.downloadFileAndSaveToStorage(fileURL: displayData.audioURL ?? "") { success in
+        
+        self.currentState = .downloading
+        self.currentAudioProvider.downloadFileAndSaveToStorage(fileURL: displayData.audioURL ?? "")
+        
+        self.currentAudioProvider.downloadCompletionSuccess = { success in
             if success {
                 self.currentState = .paused
-                self.updateOfDownloadAndSavedToDocuments?()
+            } else {
+                self.currentState = .waitingForDownload
             }
+            self.updateOfDownloadAndSavedToDocuments?()
+
         }
+        
+        self.currentAudioProvider.showDownloadProgressOfCurrentContent = { percentage in
+            self.currentState = .downloading
+            self.showDownloadProgressOfCurrentContent?(percentage)
+        }
+        
     }
     
     private func playCurrentSongAudio() {
