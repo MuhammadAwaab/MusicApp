@@ -8,9 +8,16 @@
 import Foundation
 
 
+extension URL {
+    func valueOf(_ queryParameterName: String) -> String? {
+        guard let url = URLComponents(string: self.absoluteString) else { return nil }
+        return url.queryItems?.first(where: { $0.name == queryParameterName })?.value
+    }
+}
+
 protocol AudioProviderProtocol {
     func isFileExistingInLocalStorage(fileURL: String) -> Bool
-    func downloadFileAndSaveToStorage(fileURL: String)
+    func downloadFileAndSaveToStorage(fileURL: String, completion: @escaping(_ success: Bool) -> Void)
     func getDestinationContentURLOfSavedSong(fileURL: String) -> URL?
 }
 
@@ -20,8 +27,8 @@ class AudioContentProvider: AudioProviderProtocol{
     
     func isFileExistingInLocalStorage(fileURL: String) -> Bool {
         
-        if let audioURL = URL(string: fileURL) {
-            let destinationUrl = documentsDirectoryURL.appendingPathComponent(audioURL.lastPathComponent)
+        if let audioURL = URL(string: fileURL), let componentToAdd = audioURL.valueOf("id"){
+            let destinationUrl = documentsDirectoryURL.appendingPathComponent(componentToAdd)
             print(destinationUrl)
             if FileManager.default.fileExists(atPath: destinationUrl.path) {
                 return true
@@ -31,16 +38,18 @@ class AudioContentProvider: AudioProviderProtocol{
         return false
     }
     
-    func downloadFileAndSaveToStorage(fileURL: String) {
-        if let audioURL = URL(string: fileURL) {
-            let destinationUrl = documentsDirectoryURL.appendingPathComponent(audioURL.lastPathComponent)
+    func downloadFileAndSaveToStorage(fileURL: String, completion: @escaping(_ success: Bool) -> Void) {
+        if let audioURL = URL(string: fileURL), let componentToAdd = audioURL.valueOf("id") {
+            let destinationUrl = documentsDirectoryURL.appendingPathComponent(componentToAdd)
             URLSession.shared.downloadTask(with: audioURL, completionHandler: { (location, response, error) -> Void in
                 guard let location = location, error == nil else { return }
                 do {
                     try FileManager.default.moveItem(at: location, to: destinationUrl)
                     print("File moved to documents folder")
+                    completion(true)
                 } catch let error as NSError {
                     print(error.localizedDescription)
+                    completion(false)
                 }
             }).resume()
         }
@@ -48,8 +57,8 @@ class AudioContentProvider: AudioProviderProtocol{
     }
     
     func getDestinationContentURLOfSavedSong(fileURL: String) -> URL? {
-        if let audioURL = URL(string: fileURL) {
-            let destinationUrl = documentsDirectoryURL.appendingPathComponent(audioURL.lastPathComponent)
+        if let audioURL = URL(string: fileURL), let componentToAdd = audioURL.valueOf("id"){
+            let destinationUrl = documentsDirectoryURL.appendingPathComponent(componentToAdd)
             return destinationUrl
         }
         

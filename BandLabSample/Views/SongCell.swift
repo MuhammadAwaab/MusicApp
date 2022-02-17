@@ -17,7 +17,7 @@ class SongCell: UITableViewCell {
     var viewModel: SongCellViewModel? {
         didSet{
             songTitleLabel.text = viewModel?.displayData.name ?? ""
-            songActionButton.setImage(viewModel?.currentState.buttonImage, for: .normal)
+            updateActionButtonInterface()
         }
     }
     
@@ -32,12 +32,30 @@ class SongCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func songActionButtonTapped(_ sender: Any) {
-        viewModel?.updateCurrentState()
-        songActionButton.setImage(viewModel?.currentState.buttonImage, for: .normal)
-        if let interaction = viewModel?.currentState.buttonInteractionEnabled {
-            songActionButton.isEnabled = interaction
+    
+    private func updateActionButtonInterface() {
+        DispatchQueue.main.async {
+            self.songActionButton.setImage(self.viewModel?.currentState.buttonImage, for: .normal)
+            if let interaction = self.viewModel?.currentState.buttonInteractionEnabled {
+                self.songActionButton.isEnabled = interaction
+            }
         }
+    }
+    
+    private func bindWithCellViewModel() {
+        self.viewModel?.updateOfDownloadAndSavedToDocuments = {[weak self] in
+            self?.updateActionButtonInterface()
+        }
+    }
+    
+    
+    @IBAction func songActionButtonTapped(_ sender: Any) {
+        if self.viewModel?.shouldBindForDownload == true {
+            bindWithCellViewModel()
+        }
+        viewModel?.updateCurrentState()
+        updateActionButtonInterface()
+        
     }
     
     

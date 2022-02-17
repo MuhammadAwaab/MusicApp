@@ -26,10 +26,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gdf-G5-Fpa">
-                                <rect key="frame" x="303" y="90" width="30" height="30"/>
+                                <rect key="frame" x="283" y="70" width="50" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjR-JZ-7jJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="play"/>
                                         <connections>
@@ -41,9 +41,9 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="bjR-JZ-7jJ" secondAttribute="trailing" id="Z27-9u-Hrb"/>
                                     <constraint firstItem="bjR-JZ-7jJ" firstAttribute="top" secondItem="Gdf-G5-Fpa" secondAttribute="top" id="ZMR-cp-UFL"/>
-                                    <constraint firstAttribute="height" constant="30" id="eYz-0d-xTA"/>
+                                    <constraint firstAttribute="height" constant="50" id="eYz-0d-xTA"/>
                                     <constraint firstAttribute="bottom" secondItem="bjR-JZ-7jJ" secondAttribute="bottom" id="nrc-Eb-JgC"/>
-                                    <constraint firstAttribute="width" constant="30" id="o7t-Ak-MFo"/>
+                                    <constraint firstAttribute="width" constant="50" id="o7t-Ak-MFo"/>
                                     <constraint firstItem="bjR-JZ-7jJ" firstAttribute="leading" secondItem="Gdf-G5-Fpa" secondAttribute="leading" id="xd8-2R-pcu"/>
                                 </constraints>
                             </view>

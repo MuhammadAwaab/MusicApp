@@ -42,6 +42,7 @@ enum SongState {
 
 class SongCellViewModel {
     let displayData: SongData
+    let shouldBindForDownload: Bool
     var currentState: SongState
     private var currentAudioProvider: AudioProviderProtocol
     
@@ -49,32 +50,44 @@ class SongCellViewModel {
         self.displayData = songToShow
         self.currentAudioProvider = audioProvider
         if self.currentAudioProvider.isFileExistingInLocalStorage(fileURL: displayData.audioURL ?? "") {
-            self.currentState = .playing
+            self.currentState = .paused
+            shouldBindForDownload = false
         } else {
             self.currentState = .waitingForDownload
+            shouldBindForDownload = true
         }
     }
     
+    var updateOfDownloadAndSavedToDocuments:(() -> Void)?
     
     private func downloadCurrentAudio() {
-        self.currentAudioProvider.downloadFileAndSaveToStorage(fileURL: displayData.audioURL ?? "")
+        self.currentAudioProvider.downloadFileAndSaveToStorage(fileURL: displayData.audioURL ?? "") { success in
+            if success {
+                self.currentState = .paused
+                self.updateOfDownloadAndSavedToDocuments?()
+            }
+        }
     }
     
     private func playCurrentSongAudio() {
         if let content = self.currentAudioProvider.getDestinationContentURLOfSavedSong(fileURL: displayData.audioURL ?? "") {
             AudioPlayerManager.shared.playAudioWithContent(contentURL: content)
         }
-        
+    }
+    
+    private func postNotificationForPausingOtherSongs() {
+        NotificationCenter.default.post(name: NSNotification.Name("bandlab.stopPlayingSongs"), object: displayData.id)
     }
     
     func updateCurrentState() {
         switch currentState {
         case .playing:
             self.currentState = .paused
-            playCurrentSongAudio()
+            AudioPlayerManager.shared.stopPlayingAudio()
         case .paused:
             self.currentState = .playing
-            AudioPlayerManager.shared.stopPlayingAudio()
+            postNotificationForPausingOtherSongs()
+            playCurrentSongAudio()
         case .waitingForDownload:
             downloadCurrentAudio()
             self.currentState = .downloading

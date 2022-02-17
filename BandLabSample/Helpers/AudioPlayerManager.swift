@@ -10,15 +10,15 @@ import AVFoundation
 
 class AudioPlayerManager {
     
-    var audioPlayer:AVAudioPlayer!
+    var audioPlayer:AVAudioPlayer = AVAudioPlayer()
     static let shared = AudioPlayerManager()
     
     func playAudioWithContent(contentURL: URL) {
+        self.stopPlayingAudio()
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: contentURL)
-            guard let player = audioPlayer else { return }
-            player.prepareToPlay()
-            player.play()
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
         } catch let error {
             print(error.localizedDescription)
         }

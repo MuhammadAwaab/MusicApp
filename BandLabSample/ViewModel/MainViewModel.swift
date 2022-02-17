@@ -28,6 +28,7 @@ class MainViewModel: MainViewModelProtocol {
     
     init(provider: DataProviderProtocol = DataProvider()){
         self.currentProvider = provider
+        NotificationCenter.default.addObserver(self, selector: #selector(stopPlayingSongs(_:)), name: NSNotification.Name("bandlab.stopPlayingSongs"), object: nil)
     }
     
     
@@ -49,9 +50,14 @@ class MainViewModel: MainViewModelProtocol {
             return cellViewModelsArray[indexPath.row]
         }
     
-    func stopPlayingSongs() {
-        for cellViewModel in cellViewModelsArray {
-            cellViewModel.pauseSongIfPlaying()
+    @objc func stopPlayingSongs(_ notification: Notification) {
+        if let songIDToWatch = notification.object as? String {
+            for cellViewModel in cellViewModelsArray {
+                if cellViewModel.displayData.id != songIDToWatch {
+                    cellViewModel.pauseSongIfPlaying()
+                }
+            }
+            self.updateView?()
         }
     }
     
@@ -62,6 +68,5 @@ class MainViewModel: MainViewModelProtocol {
         }
         cellViewModelsArray = arrayForModels
     }
-   
     
 }

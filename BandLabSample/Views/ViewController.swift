@@ -23,8 +23,11 @@ class ViewController: UIViewController {
 
     func bindWithViewModel() {
         mainTableView.register(UINib(nibName: viewModel.getCellIdentifier(), bundle: nil), forCellReuseIdentifier: viewModel.getCellIdentifier())
+       
         self.viewModel.updateView = {[weak self] in
-            self?.mainTableView.reloadData()
+            DispatchQueue.main.async {
+                self?.mainTableView.reloadData()
+            }
         }
         self.viewModel.fetchParsedDataForDisplay()
     }
